@@ -1,6 +1,12 @@
 [submodule "external/arduino-esp32"]
-	path = external/arduino-esp32
+	path = external/arduino
 	url = https://github.com/espressif/arduino-esp32
 [submodule "external/esp-idf"]
 	path = external/esp-idf
 	url = https://github.com/espressif/esp-idf
+[submodule "arduino/ESP32-Chimera-Core"]
+	path = arduino/ESP32-Chimera-Core
+	url = https://github.com/tobozo/ESP32-Chimera-Core
+[submodule "arduino/LovyanGFX"]
+	path = arduino/LovyanGFX
+	url = https://github.com/lovyan03/LovyanGFX
