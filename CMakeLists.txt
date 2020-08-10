@@ -17,11 +17,11 @@ execute_process(COMMAND
 
 set(EXTRA_COMPONENT_DIRS 
     # ESP32 components
-    ${CMAKE_CURRENT_LIST_DIR}/external/arduino
+    #${CMAKE_CURRENT_LIST_DIR}/external/arduino
 
     # App 
     ${CMAKE_CURRENT_LIST_DIR}/arduino/LovyanGFX
-    ${CMAKE_CURRENT_LIST_DIR}/arduino/ESP32-Chimera-Core
+    #${CMAKE_CURRENT_LIST_DIR}/arduino/ESP32-Chimera-Core
     )
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
