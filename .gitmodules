@@ -1,4 +1,4 @@
-[submodule "external/arduino-esp32"]
+[submodule "external/arduino"]
 	path = external/arduino
 	url = https://github.com/espressif/arduino-esp32
 [submodule "external/esp-idf"]
