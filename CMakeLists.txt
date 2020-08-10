@@ -14,5 +14,9 @@ set_property(GLOBAL
 execute_process(COMMAND
     chmod +x ${launcher_file})
 
+
+set(EXTRA_COMPONENT_DIRS ${CMAKE_CURRENT_LIST_DIR}/external/arduino-esp32)
+
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(esp32test)
+
