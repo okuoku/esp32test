@@ -1,10 +1,13 @@
 // 基本的な使い方
+#include <stdio.h>
+#include "sdkconfig.h"
+#include "esp_system.h"
 
 // ※  もし対応機種を ArduinoIDE以外の環境で使用する場合や、
 // 対応機種がボードマネージャに無い場合 ( TTGO T-Wristband や ESP-WROVER-KIT等 ) は、
 // LovyanGFX.hppのincludeより前に、define LGFX_～ の定義を記述してください。
 
-// #define LGFX_M5STACK          // M5Stack
+#define LGFX_M5STACK          // M5Stack
 // #define LGFX_M5STICKC         // M5Stick C
 // #define LGFX_ODROID_GO        // ODROID-GO
 // #define LGFX_TTGO_TS          // TTGO TS
@@ -37,6 +40,7 @@ static LGFX_Sprite sprite(&lcd); // スプライトを使う場合はLGFX_Sprite
 // ここでincludeをするか、ファイルの内容をそのまま貼り付けて使用してください。
 
 
+static
 void setup(void)
 {
 // 最初に初期化関数を呼び出します。
@@ -288,6 +292,7 @@ void setup(void)
   delay(5000);
 }
 
+static
 void loop(void)
 {
   static int count = 0;
@@ -304,4 +309,15 @@ void loop(void)
   sprite.setPaletteColor(3, lcd.color888( count & 0xFF, 0, 0));
 
   sprite.pushRotateZoom(x, y, a, zoom, zoom, 0);
+}
+
+/* ESP-IDF app_main */
+
+extern "C"
+void
+app_main(void){
+    setup();
+    for(;;){
+        loop();
+    }
 }
