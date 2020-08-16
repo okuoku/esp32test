@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include "sdkconfig.h"
 #include "esp_system.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 
 // ※  もし対応機種を ArduinoIDE以外の環境で使用する場合や、
 // 対応機種がボードマネージャに無い場合 ( TTGO T-Wristband や ESP-WROVER-KIT等 ) は、
@@ -312,12 +314,29 @@ void loop(void)
 }
 
 /* ESP-IDF app_main */
+void
+maintask(void* bogus){
+    const TickType_t freq = 100 / portTICK_PERIOD_MS;
+    TickType_t lastwake;
+
+    (void)bogus;
+    lastwake = xTaskGetTickCount();
+    for(;;){
+        loop();
+        vTaskDelayUntil(&lastwake, freq);
+        printf("Lastwake: %d\n",lastwake);
+    }
+}
 
 extern "C"
 void
 app_main(void){
     setup();
-    for(;;){
-        loop();
-    }
+    (void)xTaskCreatePinnedToCore(maintask,
+                                  "MainTask",
+                                  1024 * 4,
+                                  nullptr,
+                                  1,
+                                  nullptr,
+                                  0);
 }
