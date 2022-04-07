@@ -1,6 +1,3 @@
 [submodule "external/esp-idf"]
 	path = external/esp-idf
 	url = https://github.com/espressif/esp-idf
-[submodule "arduino/LovyanGFX"]
-	path = arduino/LovyanGFX
-	url = https://github.com/lovyan03/LovyanGFX
