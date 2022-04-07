@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14) # For RULE_LAUNCH_CUSTOM fix
 
 set(PORT /dev/ttyS4)
-set(idf_path ${CMAKE_CURRENT_LIST_DIR}/external/esp-idf)
+set(idf_path ${CMAKE_CURRENT_LIST_DIR}/esp-idf)
 set(ENV{IDF_PATH} ${idf_path})
 
 # Generate custom launcher
@@ -21,7 +21,7 @@ set(EXTRA_COMPONENT_DIRS
     #${CMAKE_CURRENT_LIST_DIR}/external/arduino
 
     # App 
-    ${CMAKE_CURRENT_LIST_DIR}/arduino/LovyanGFX
+    #${CMAKE_CURRENT_LIST_DIR}/arduino/LovyanGFX
     #${CMAKE_CURRENT_LIST_DIR}/arduino/ESP32-Chimera-Core
     )
 

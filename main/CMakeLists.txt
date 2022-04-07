@@ -1,7 +1,6 @@
 idf_component_register(
-    SRCS "1_simple_use.cxx"
+    SRCS "hello_world_main.c"
     REQUIRES 
-    LovyanGFX 
     cxx
     spi_flash # For hello world sample
     INCLUDE_DIRS "")
